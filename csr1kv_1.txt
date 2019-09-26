@@ -1,0 +1,135 @@
+
+CSR1000V_1#show ip int br 
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet1       192.168.54.128  YES DHCP   up                    up      
+CSR1000V_1#ter len 0
+CSR1000V_1#sh run
+Building configuration...
+
+Current configuration : 1013 bytes
+!
+! Last configuration change at 06:42:36 UTC Tue Sep 24 2019
+!
+version 15.5
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no platform punt-keepalive disable-kernel-core
+platform console auto
+!
+hostname CSR1000V_1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+!
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+no ip domain lookup
+ip domain name cisco.com
+
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+license udi pid CSR1000V sn 97LG405Y62N
+spanning-tree extend system-id
+!
+username root privilege 15 password 0 cisco
+!
+redundancy
+!
+!
+!
+!
+!
+!
+ip ssh version 2
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+! 
+! 
+!
+!
+interface GigabitEthernet1
+ ip address dhcp
+ negotiation auto
+!
+!
+virtual-service csr_mgmt
+!
+ip forward-protocol nd
+!
+no ip http server
+no ip http secure-server
+!
+!
+!
+!
+control-plane
+!
+ !
+ !
+ !
+ !
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+line vty 0 4
+ login local
+ transport input ssh
+line vty 5 8
+ login local
+ transport input ssh
+!
+!
+end
+
+CSR1000V_1#

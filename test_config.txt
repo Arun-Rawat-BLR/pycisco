@@ -1,0 +1,8 @@
+int lo8
+ip addr 4.4.4.4 255.255.255.0
+
+int lo9
+ip address 5.5.5.5 255.255.255.0
+
+int lo10
+ip address  6.6.6.6 255.255.255.0
