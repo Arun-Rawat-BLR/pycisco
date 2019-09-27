@@ -1,0 +1,20 @@
+---
+ - hosts: CSR  # this is target section
+   gather_facts: no
+   vars_files:  # this is variable section
+    - myvar.yml
+   tasks: # this is task section
+    - name: I want to run command
+      ios_command:
+       commands: "{{item}}"
+      loop:      # this is for loop 
+      - "{{cmd}}"
+    
+    - name: creating users with password
+      ios_user:
+       name: test2
+       privilege: 15
+       state: present
+       configured_password: cisco
+      with_items:
+       - "{{users}}" 

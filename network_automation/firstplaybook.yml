@@ -1,0 +1,18 @@
+---
+ - hosts: CSR
+   tasks: 
+    - name: I want to run command
+      ios_command:
+       commands:
+        - show ip int br
+        - show ver
+        - show clock
+        - show run	
+    - name: ping to google DNS
+      ios_command:
+       commands:
+       - show ip route
+      register: output
+    - name: shwoing normal output
+      debug: 
+       var: output 

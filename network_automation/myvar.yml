@@ -1,0 +1,18 @@
+cmd:
+ - show run
+ - show arp
+ - show ip int br
+ - show clock
+
+users:
+ - demo1
+ - demo2
+ - demo3
+ - demo4
+
+passwd:
+ - cisco1
+ - cisco2
+ - cisco3
+ - cisco4 
+

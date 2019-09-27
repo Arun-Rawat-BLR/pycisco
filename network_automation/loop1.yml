@@ -1,0 +1,16 @@
+---
+ - hosts: CSR  # this is target section
+   gather_facts: no
+   vars:  # this is variable section
+    cmd:
+     - show run
+     - show clock
+     - show ip int br
+     - show arp
+
+   tasks: # this is task section
+    - name: I want to run command
+      ios_command:
+       commands: "{{item}}"
+      loop:      # this is for loop 
+      - "{{cmd}}"

@@ -1,0 +1,3 @@
+a: show clock
+b: show run
+z: show ip int br

@@ -1,0 +1,18 @@
+---
+ - hosts: all
+   gather_facts: no
+   tasks:
+    - name: just message
+      ios_command:
+       commands: show ver
+     
+    - name: hello
+      ios_ping:
+       dest: 8.8.8.8
+
+    - name: using IP
+      ios_command:
+       commands: ping 8.8.8.8
+
+    - name: dns
+      debug: msg="Our DNS server IP is 8.8.8.8" 

@@ -1,0 +1,20 @@
+---
+ - hosts: all
+   gather_facts: no
+   vars:
+    ip: 8.8.8.8
+   tasks:
+    - name: just message
+      ios_command:
+       commands: show ver
+     
+    - name: hello
+      ios_ping:
+       dest: "{{ip}}"
+
+    - name: using "{{ip}}"
+      ios_command:
+       commands: ping "{{ip}}"
+
+    - name: dns
+      debug: msg="Our DNS server IP is {{ip}}" 
